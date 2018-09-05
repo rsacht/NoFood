@@ -2,25 +2,14 @@
 
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/categoria-controller');
 
-router.get('/', (req, res) =>{
-    res.status(200).send('Funcionando...');
-});
+let _ctrl = new controller();
 
-router.get('/:id', (req, res) =>{
-    res.status(200).send(`O id passado foi ${req.params.id}`);
-});
-
-router.post('/', (req, res) =>{
-
-});
-
-router.put('/:id', (req, res) =>{
-
-});
-
-router.delete('/:id', (req, res) =>{
-
-});
+router.get('/', _ctrl.get);
+router.get('/:id', _ctrl.getById);
+router.post('/', _ctrl.post);
+router.put('/:id', _ctrl.put);
+router.delete('/:id', _ctrl.delete);
 
 module.exports = router;
