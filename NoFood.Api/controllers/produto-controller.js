@@ -9,7 +9,7 @@ produtoController.prototype.post = async (req, res) =>{};
 produtoController.prototype.post = async (req, res) =>{};
 produtoController.prototype.put = async (req, res) =>{};
 produtoController.prototype.get = async (req, res) =>{
-    res.status(200).send('Funcionando...');
+    res.status(200).send('Listando Produtos ...');
 };
 produtoController.prototype.getById = async (req, res) =>{
     res.status(200).send(`O id passado foi ${req.params.id}`);
