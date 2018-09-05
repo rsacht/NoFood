@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 //Routers
 const categoriaRouter = require('../routes/categoria-router');
+const produtoRouter = require('../routes/produto-router');
 
 //Criando/Invocando a Api/Server web do express
 const app = express();
@@ -13,5 +14,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 //Configurando as rotas
 app.use('/api/categoria', categoriaRouter);
+app.use('/api/produto', produtoRouter);
 
 module.exports = app;
