@@ -1,6 +1,7 @@
 'use strict'
 
 const mongoose = require('mongoose');
+const categoria = mongoose.model('Categoria');
 
 function categoriaController(){
 
