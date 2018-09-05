@@ -1,5 +1,7 @@
 'use strict'
 
+const mongoose = require('mongoose');
+
 function categoriaController(){
 
 }
