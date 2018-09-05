@@ -10,3 +10,12 @@ const categoriaModel = new schema({
     ativa:{type: Boolean, required: true},
     dataCriacao:{type: Date, default:Date.now}
 }, {versionKey:false});
+
+//pre -> que deve fazer antes de salvar (validações)
+categoriaModel.pre('save', next =>{
+    let agora = new Date();
+    //Se a data de criação for nula ou vazia, preencher com a data atual
+    if(!this.dataCriacao)
+        this.dataCriacao = agora;
+    next();
+});
