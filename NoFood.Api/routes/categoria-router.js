@@ -8,7 +8,7 @@ router.get('/', (req, res) =>{
 });
 
 router.get('/:id', (req, res) =>{
-
+    res.status(200).send(`O id passado foi ${req.params.id}`);
 });
 
 router.post('/', (req, res) =>{
