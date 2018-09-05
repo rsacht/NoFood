@@ -19,3 +19,5 @@ categoriaModel.pre('save', next =>{
         this.dataCriacao = agora;
     next();
 });
+
+module.exports = mongoose.model('Categoria', categoriaModel);
