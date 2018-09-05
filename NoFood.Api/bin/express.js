@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 //Configurando a conexão com banco de dados
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds245762.mlab.com:45762/nofood');
+mongoose.connect('mongodb://<admin>:<nofood123456>@ds245762.mlab.com:45762/nofood');
 
 //Configurando as rotas
 app.use('/api/categoria', categoriaRouter);
