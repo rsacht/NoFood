@@ -12,6 +12,12 @@ class categoriaRepository{
         let resultado = await categoria.save();
         return resultado;
     }
+
+    async update(id, data){
+        await CategoriaModel.findByIdAndUpdate(id, {$set: data});
+        let resultado = await CategoriaModel.findById(id);
+        return resultado;
+    }
 }
 
 module.exports = categoriaRepository();

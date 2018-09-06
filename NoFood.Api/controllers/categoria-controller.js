@@ -14,11 +14,8 @@ categoriaController.prototype.post = async (req, res) =>{
 };
 
 categoriaController.prototype.put = async (req, res) =>{
-    //await -> espere acontecer -> Pegue o modelo. 
-    //Busque o id. $set -> Atualize
-    await categoria.findByIdAndUpdate(req.params.id, {$set:req.body});
-    let categoriaEncontrada = await categoria.findById(req.params.id);
-    res.status(202).send(categoriaEncontrada);
+    let resultado = await new repository().update(req.params.id, req.body);
+    res.status(202).send(resultado);
 };
 categoriaController.prototype.get = async (req, res) =>{
     let lista = await categoria.find();
