@@ -1,6 +1,6 @@
 require('../models/categoria-model');
 const mongoose = require('mongoose');
-const CategoriraModel = mongoose.model('Categoria');
+const CategoriaModel = mongoose.model('Categoria');
 
 class categoriaRepository{
     constructor(){
@@ -8,7 +8,7 @@ class categoriaRepository{
     }
 
     async create(data){
-        let categoria = new CategoriraModel(data);
+        let categoria = new CategoriaModel(data);
         let resultado = await categoria.save();
         return resultado;
     }
