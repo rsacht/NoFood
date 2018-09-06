@@ -22,6 +22,11 @@ class categoriaRepository{
     async getAll(){
         return await CategoriaModel.find();
     }
+
+    async getById(){
+        return await CategoriaModel.findById(id);
+    }
+
 }
 
 module.exports = categoriaRepository();
