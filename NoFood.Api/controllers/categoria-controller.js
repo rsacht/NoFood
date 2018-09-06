@@ -25,6 +25,9 @@ categoriaController.prototype.getById = async (req, res) =>{
     let categoria = await new repository().getById(req.params.id);   
     res.status(200).send(categoria);
 };
-categoriaController.prototype.delete = async (req, res) =>{};
+categoriaController.prototype.delete = async (req, res) =>{
+    let deletado = await new repository().delete(req.params.id);
+    res.status(204).send(deletado);
+};
 
 module.exports = categoriaController;

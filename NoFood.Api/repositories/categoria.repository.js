@@ -27,6 +27,10 @@ class categoriaRepository{
         return await CategoriaModel.findById(id);
     }
 
+    async delete(id){
+        return await CategoriaModel.findByIdAndRemove(id);
+    }
+
 }
 
 module.exports = categoriaRepository();
