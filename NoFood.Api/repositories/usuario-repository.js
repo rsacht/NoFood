@@ -8,10 +8,14 @@ class usuarioRepository {
         this._base = new base('Usuario');
         this._projection = 'nome email _id';
     }
+
+    async IsEmailExiste(Email){
+        return await this._base._model.findOne({email:Email}, this._projection);
+    }
     
     async authenticated(Email, Senha){
         let _hashSenha = md5(Senha);
-        this._base._model.findOne({email: Email, senha: _hashSenha}, this._projection );
+        return await this._base._model.findOne({email: Email, senha: _hashSenha}, this._projection );
     }
 
     async create(data) {
