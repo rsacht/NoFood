@@ -23,8 +23,7 @@ usuarioController.prototype.get = async (req, res) =>{
 usuarioController.prototype.getById = async (req, res) =>{
     let usuario
  = await _repo.getById(req.params.id);   
-    res.status(200).send(usuario
-);
+    res.status(200).send(usuario);
 };
 usuarioController.prototype.delete = async (req, res) =>{
     let deletado = await _repo.delete(req.params.id);
