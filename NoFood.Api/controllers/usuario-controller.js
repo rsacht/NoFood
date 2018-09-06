@@ -14,6 +14,7 @@ function usuarioController(){
 usuarioController.prototype.post = async (req, res) =>{
     let _validationContract = new validation();
 
+    _validationContract.isRequired(req.body.nome, 'Informe seu nome');
     _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
     _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido');
     _validationContract.isRequired(req.body.senha, 'A senha informada é inválida');
@@ -32,8 +33,23 @@ usuarioController.prototype.post = async (req, res) =>{
 };
 
 usuarioController.prototype.put = async (req, res) =>{
-    let resultado = await _repo.update(req.params.id, req.body);
-    res.status(202).send(resultado);
+    let _validationContract = new validation();
+
+    _validationContract.isRequired(req.body.nome, 'Informe seu nome');
+    _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
+    _validationContract.isEmail(req.body.email, 'O e-mail informado é inválido');
+    _validationContract.isEmail(req.params.id, 'Informe o ID do usuário que será editado');
+   
+
+    let usuarioIsEmailExiste = await _repo.IsEmailExiste(req.body.email);
+    if(usuarioIsEmailExiste){
+        _validationContract.isTrue(
+            (usuarioIsEmailExiste.nome != undefined) && 
+            (usuarioIsEmailExiste._id != req.params.id),
+            `Já existe o e-mail ${req.body.email} cadastrado em nossa base.`);
+    }
+
+    ctrlBase.put(_repo, _validationContract, req, res);
 };
 usuarioController.prototype.get = async (req, res) =>{
     let lista  = await _repo.getAll();
