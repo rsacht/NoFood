@@ -18,6 +18,10 @@ class categoriaRepository{
         let resultado = await CategoriaModel.findById(id);
         return resultado;
     }
+
+    async getAll(){
+        return await CategoriaModel.find();
+    }
 }
 
 module.exports = categoriaRepository();

@@ -18,7 +18,7 @@ categoriaController.prototype.put = async (req, res) =>{
     res.status(202).send(resultado);
 };
 categoriaController.prototype.get = async (req, res) =>{
-    let lista = await categoria.find();
+    let lista  = await new repository().getAll();
     res.status(200).send(lista);
 };
 categoriaController.prototype.getById = async (req, res) =>{
