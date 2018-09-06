@@ -1,5 +1,6 @@
 require('../models/usuario-model');
 const base = require('../bin/base/repository-base');
+const md5 = require('md5');
 
 class usuarioRepository {
 
@@ -8,7 +9,8 @@ class usuarioRepository {
     }
     
     async authenticated(Email, Senha){
-        this._base._model.findOne({email: Email, senha: Senha});
+        let _hashSenha = md5(Senha);
+        this._base._model.findOne({email: Email, senha: _hashSenha});
     }
 
     async create(data) {
