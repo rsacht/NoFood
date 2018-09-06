@@ -30,11 +30,11 @@ class usuarioRepository {
     }
 
     async getAll() {
-        return await this._base.getAll();
+        return this._base._model.find({}, 'nome email _id foto' );
     }
 
     async getById(id) {
-        return await this._base.getById(id);
+        return this._base._model.findById(id, this._projection );
     }
 
     async delete(id) {
