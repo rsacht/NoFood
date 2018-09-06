@@ -7,6 +7,10 @@ class usuarioRepository {
         this._base = new base('Usuario');
     }
     
+    async authenticated(Email, Senha){
+        this._base._model.findOne({email: Email, senha: Senha});
+    }
+
     async create(data) {
         return await this._base.create(data);
     }
