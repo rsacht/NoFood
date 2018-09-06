@@ -52,17 +52,13 @@ usuarioController.prototype.put = async (req, res) =>{
     ctrlBase.put(_repo, _validationContract, req, res);
 };
 usuarioController.prototype.get = async (req, res) =>{
-    let lista  = await _repo.getAll();
-    res.status(200).send(lista);
+    ctrlBase.get(_repo, req, res);
 };
 usuarioController.prototype.getById = async (req, res) =>{
-    let usuario
- = await _repo.getById(req.params.id);   
-    res.status(200).send(usuario);
+    ctrlBase.getById(_repo, req, res);
 };
 usuarioController.prototype.delete = async (req, res) =>{
-    let deletado = await _repo.delete(req.params.id);
-    res.status(204).send(deletado);
+    ctrlBase.delete(_repo, req, res);
 };
 
 module.exports = usuarioController;
