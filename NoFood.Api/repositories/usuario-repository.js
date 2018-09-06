@@ -10,7 +10,7 @@ class usuarioRepository {
     
     async authenticated(Email, Senha){
         let _hashSenha = md5(Senha);
-        this._base._model.findOne({email: Email, senha: _hashSenha});
+        this._base._model.findOne({email: Email, senha: _hashSenha}, 'nome email _id');
     }
 
     async create(data) {
